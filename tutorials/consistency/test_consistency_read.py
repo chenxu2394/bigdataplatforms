@@ -25,14 +25,17 @@ if __name__ == "__main__":
     input= args.q
     #copy a line of the bird song in csv file here
     start=time()
+    # print(start)
     ## enable only 1 option
-    consistency_level =ConsistencyLevel.ONE
-    #consistency_level =ConsistencyLevel.QUORUM
-    #consistency_level =ConsistencyLevel.ALL
+    # consistency_level =ConsistencyLevel.ONE
+    # consistency_level =ConsistencyLevel.QUORUM
+    consistency_level =ConsistencyLevel.ALL
     query = SimpleStatement(input,
         consistency_level=consistency_level)
     rows=session.execute(query)
     for row in rows:
         print (row)
     stop=time()
+    # print(stop)
+    print('Consistency level', consistency_level)
     print("It took",stop-start,"(s)",sep=" ")

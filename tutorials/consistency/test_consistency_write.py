@@ -23,17 +23,17 @@ if __name__ == "__main__":
     # replace values with data from dataset
     # or change the code so that it reads data from the file
     #input 1
-    '''
-    input= """
-    INSERT INTO tutorial3.bird1234 (country, duration_seconds, english_cname, id,  species, latitude, longitude)
+    
+    input1= """
+    INSERT INTO cs4640cx.bird1234 (country, duration_seconds, english_cname, id,  species, latitude, longitude)
     VALUES
     ('Mexico',29,'Black-tailed Gnatcatcher',71907,'melanura',32.156,-115.79299999999999)
     ;
     """
-    '''
+    
     #input 2
     input2 = """
-    INSERT INTO tutorial3.bird1234 (country, duration_seconds, english_cname, id,species)
+    INSERT INTO cs4640cx.bird1234 (country, duration_seconds, english_cname, id,species)
     VALUES
     ('United States',6,'Black-tailed Gnatcatcher',361929,'melanura')
     ;
@@ -41,11 +41,11 @@ if __name__ == "__main__":
 
     start=time()
     ## enable only 1 option
-    #consistency_level =ConsistencyLevel.ONE
-    #consistency_level =ConsistencyLevel.QUORUM
-    consistency_level =ConsistencyLevel.ALL
+    consistency_level =ConsistencyLevel.ONE
+    # consistency_level =ConsistencyLevel.QUORUM
+    # consistency_level =ConsistencyLevel.ALL
     ## correct the input
-    query = SimpleStatement(input2,
+    query = SimpleStatement(input1,
         consistency_level=consistency_level)
     session.execute(query)
     stop=time()
